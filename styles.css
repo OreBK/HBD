@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('images/blows\ a\ kiss.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+}
+
+.birthday-card {
+    background: rgba(255, 204, 203, 0.8); /* Semi-transparent background */
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: pop 0.5s ease-in-out;
+}
+
+.name {
+    color: #ff69b4;
+    font-weight: bold;
+}
+
+.signature {
+    margin-top: 20px;
+    font-style: italic;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff1493;
+}
+
+.hidden {
+    display: none;
+}
+
+.balloons {
+    position: relative;
+    height: 100%; /* Ensure there's enough space for the hearts to float */
+}
+
+.heart {
+    width: 50px;
+    height: 50px;
+    background-color: #ffcccb; /* Red color for hearts */
+    position: absolute;
+    bottom: -100px; /* Start below the viewport */
+    transform: rotate(-45deg);
+    animation: float 6s ease-in-out infinite, spin 3s linear infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #ffcccb; /* Same color as the heart */
+    border-radius: 50%;
+}
+
+.heart:before {
+    left: 0;
+    top: -25px;
+}
+
+.heart:after {
+    right: 0;
+    top: -25px;
+}
+
+#heart1 {
+    left: 20%;
+    animation-duration: 8s, 6s;
+}
+
+#heart2 {
+    left: 50%;
+    animation-duration: 7s, 5s;
+    background-color: #ffeb3b; /* Yellow heart */
+}
+
+#heart3 {
+    left: 80%;
+    animation-duration: 9s, 4s;
+    background-color: #32cd32; /* Green heart */
+}
+
+.cake {
+    display: none;
+    width: 200px;
+    margin-top: 20px;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0% {
+        bottom: -100px;
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        bottom: 80vh; /* Hearts float up to 80% of the viewport height */
+        transform: scale(1.1) rotate(10deg); /* Slightly scale and rotate */
+    }
+    100% {
+        bottom: -100px;
+        transform: scale(1) rotate(-45deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
